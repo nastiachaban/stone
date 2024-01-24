@@ -1,5 +1,6 @@
 package com.example.stonecollection.models;
 
+
 public enum Color {
     WHITE,
     PURPLE,
