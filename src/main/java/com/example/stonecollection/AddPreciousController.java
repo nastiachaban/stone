@@ -45,11 +45,26 @@ public class AddPreciousController extends Controller implements Initializable {
 
     @FXML
     protected void onSaveClick(ActionEvent event) throws Exception{
+
+        if(nameTxt.getText().equals("") || weightTxt.getText().equals("") || priceTxt.getText().equals("") || colorBox.getValue()==null || rarityBox.getValue()==null){
+            showMessage("enter all data");
+            return;
+        }
         String name=nameTxt.getText();
-        int weight=Integer.parseInt(weightTxt.getText());
-        double price=Double.parseDouble(priceTxt.getText());
+        int weight;
+        double price;
+        try{
+        weight=Integer.parseInt(weightTxt.getText());
+        price=Double.parseDouble(priceTxt.getText());
+        }
+        catch(Exception e){
+            showMessage("invalid data");
+            return;
+        }
         Color color=colorBox.getValue();
         Rarity rarity=rarityBox.getValue();
+
+
 
         Precious stone=new Precious(name,price,color,weight,rarity,DB.collection.getId());
         DB db=new DB();

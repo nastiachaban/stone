@@ -58,6 +58,10 @@ public class EditController extends Controller implements Initializable {
     @FXML
 
     public void onEditClick(ActionEvent event) throws Exception {
+        if(table.getSelectionModel().getSelectedItem()==null){
+            showMessage("select stone to edit");
+            return;
+        }
         DB.stone = table.getSelectionModel().getSelectedItem();
         if (DB.stone instanceof SemiPrecious)
             redirect(event, "editsemiprecious-view.fxml", 400, 400);
@@ -68,6 +72,10 @@ public class EditController extends Controller implements Initializable {
     @FXML
 
     public void onDeleteClick(ActionEvent event) throws Exception {
+        if(table.getSelectionModel().getSelectedItem()==null){
+            showMessage("select stone to delete");
+            return;
+        }
         DB.stone = table.getSelectionModel().getSelectedItem();
         redirect(event, "deletestone-view.fxml", 300, 200);
     }

@@ -33,12 +33,29 @@ public class EditSemiPreciousController extends Controller implements Initializa
     private TextField qualityTxt;
 
     public void onSaveClick(ActionEvent event) throws Exception{
+        if(nameTxt.getText().equals("") || weightTxt.getText().equals("") || priceTxt.getText().equals("") || colorBox.getValue()==null || qualityTxt.getText().equals("")){
+            showMessage("enter all data");
+            return;
+        }
+
         String name=nameTxt.getText();
+        int weight;
+        double price;
+        int quality;
+        try {
+            weight = Integer.parseInt(weightTxt.getText());
+            price = Double.parseDouble(priceTxt.getText());
+            quality=Integer.parseInt(qualityTxt.getText());
+        }
+        catch(Exception e){
+            showMessage("invalid data");
+            return;
+        }
         DB.stone.setName(name);
-        DB.stone.setWeight(Integer.parseInt(weightTxt.getText()));
-        DB.stone.setPrice(Double.parseDouble(priceTxt.getText()));
+        DB.stone.setWeight(weight);
+        DB.stone.setPrice(price);
         DB.stone.setColor(colorBox.getValue());
-        ((SemiPrecious)DB.stone).setQuality(Integer.parseInt(qualityTxt.getText()));
+        ((SemiPrecious)DB.stone).setQuality(quality);
 
         DB db=new DB();
         db.editSemiPrecious((SemiPrecious) DB.stone);

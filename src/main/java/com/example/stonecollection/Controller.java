@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,5 +19,12 @@ public class Controller {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void showMessage(String message){
+        Alert a=new Alert(Alert.AlertType.INFORMATION);
+        a.setContentText(message);
+        a.setHeaderText("Warning");
+        a.show();
     }
 }

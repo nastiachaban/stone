@@ -44,11 +44,26 @@ public class AddSemipreciousController extends Controller implements Initializab
 
     @FXML
     protected void onSaveClick(ActionEvent event) throws Exception{
+        if(nameTxt.getText().equals("") || weightTxt.getText().equals("") || priceTxt.getText().equals("") || colorBox.getValue()==null || qualityTxt.getText().equals("")){
+            showMessage("enter all data");
+            return;
+        }
+
         String name=nameTxt.getText();
-        int weight=Integer.parseInt(weightTxt.getText());
-        double price=Double.parseDouble(priceTxt.getText());
+        int weight;
+        double price;
+        int quality;
+        try {
+            weight = Integer.parseInt(weightTxt.getText());
+            price = Double.parseDouble(priceTxt.getText());
+            quality=Integer.parseInt(qualityTxt.getText());
+        }
+        catch(Exception e){
+            showMessage("invalid data");
+            return;
+        }
         Color color=colorBox.getValue();
-        int quality=Integer.parseInt(qualityTxt.getText());
+
 
         SemiPrecious stone=new SemiPrecious(name,price,color,weight,quality,DB.collection.getId());
         DB db=new DB();

@@ -13,7 +13,7 @@ import java.io.IOException;
 public class HelloController extends Controller {
     @FXML
     protected void startClick(ActionEvent event) throws IOException {
-            redirect(event,"collection-view.fxml",600,400);
+            redirect(event,"login-view.fxml",500,250);
     }
 
 }

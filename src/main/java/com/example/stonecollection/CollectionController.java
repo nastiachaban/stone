@@ -56,6 +56,10 @@ public class CollectionController extends Controller implements Initializable  {
     }
     @FXML
     public void onDeleteClick(ActionEvent event) throws Exception{
+        if(table.getSelectionModel().getSelectedItem()==null){
+            showMessage("select collection to delete");
+            return;
+        }
         DB.collection=table.getSelectionModel().getSelectedItem();
         redirect(event,"delete-view.fxml",300,150);
     }
@@ -67,6 +71,10 @@ public class CollectionController extends Controller implements Initializable  {
 
     @FXML
     public void onEditClick(ActionEvent event) throws Exception{
+        if(table.getSelectionModel().getSelectedItem()==null){
+            showMessage("select collection to edit");
+            return;
+        }
         DB.collection=table.getSelectionModel().getSelectedItem();
         redirect(event,"edit-view.fxml",650,450);
     }

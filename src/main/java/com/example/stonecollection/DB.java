@@ -297,7 +297,39 @@ public class DB {
         System.out.println(stone.getId());
     }
 
-//    додати метод щоб видаляти напівдорогоцінний камінь з бд
+public String getPasswordByUsername(String username) {
+
+    try {
+
+        PreparedStatement query = connection.prepareStatement("SELECT password FROM user where username=?");
+        query.setString(1, username);
+        ResultSet resultSet = query.executeQuery();
+        resultSet.next();
+        String password = resultSet.getString(1);
+        return password;
+    } catch (Exception e) {
+        System.out.println(e.getMessage());
+    }
+
+return null;
+}
+
+public void addUser(User user){
+        try{
+
+            Statement statement=connection.createStatement();
+            String q="INSERT INTO `stones`.`user` (`username`, `password`) VALUES (?, ?)";
+            PreparedStatement st=connection.prepareStatement(q);
+            st.setString(1,user.getUsername());
+            st.setString(2,user.getPassword());
+            st.executeUpdate();
+        }
+
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+}
 
 
 
