@@ -23,7 +23,7 @@ public class LoginController extends Controller{
                 DB db=new DB();
         String userN= db.getPasswordByUsername(usernameTxt.getText());
         if(userN.equals(passwordTxt.getText())){
-            redirect(event,"collection-view.fxml",600,400);;
+            redirect(event,"collection-view.fxml",600,500);;
         }else
             showMessage("invalid data");
 

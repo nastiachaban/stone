@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stonecollection.CollectionController">
+<AnchorPane prefHeight="481.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stonecollection.CollectionController">
    <children>
       <GridPane prefHeight="394.0" prefWidth="600.0">
         <columnConstraints>
@@ -32,6 +33,10 @@
          </children>
 
       </GridPane>
+       <ImageView fitHeight="88.0" fitWidth="600.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+
+           <Image url="@img/line (2).jpg" />
+       </ImageView>
 
    </children>
 </AnchorPane>

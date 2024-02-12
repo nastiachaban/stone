@@ -10,11 +10,11 @@ public class DeleteController extends Controller{
 
         DB db=new DB();
         db.deleteCollection(DB.collection);
-        redirect(event,"collection-view.fxml",600,400);
+        redirect(event,"collection-view.fxml",600,500);
     }
     @FXML
     public void onCancelClick(ActionEvent event) throws Exception{
-        redirect(event,"collection-view.fxml",600,400);
+        redirect(event,"collection-view.fxml",600,500);
     }
 
 
