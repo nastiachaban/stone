@@ -83,13 +83,17 @@ public class EditController extends Controller implements Initializable {
     @FXML
 
     public void onCancelClick(ActionEvent event) throws Exception {
-        redirect(event, "collection-view.fxml", 600, 400);
+        redirect(event, "collection-view.fxml", 600, 500);
     }
 
     @FXML
 
-    public void onApplyClick() {
-
+    public void onApplyClick(ActionEvent event) throws Exception{
+        String newname=collectionName.getText().trim();
+        DB.collection.setName(newname);
+        DB db=new DB();
+        db.editCollection(DB.collection);
+        redirect(event, "collection-view.fxml", 600, 500);
     }
 
 

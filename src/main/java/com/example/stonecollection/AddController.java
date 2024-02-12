@@ -24,13 +24,13 @@ public class AddController extends Controller{
         StoneCollection collection=new StoneCollection(txtField.getText());
         db.addCollection(collection);
 
-        redirect(event,"collection-view.fxml",600,400);
+        redirect(event,"collection-view.fxml",600,500);
     }
 
     @FXML
     protected void cancelClick(ActionEvent event) throws IOException{
 
-        redirect(event,"collection-view.fxml",600,400);
+        redirect(event,"collection-view.fxml",600,500);
     }
 
 }

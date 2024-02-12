@@ -31,7 +31,7 @@ public class DB {
     public void editCollection(StoneCollection collection) {
         try {
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate(String.format("UPDATE stonecollection SET name = \'%s\'", collection.getName()));
+            int rows = statement.executeUpdate(String.format("UPDATE stonecollection SET name = \'%s\' where id=%d", collection.getName(),collection.getId()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
