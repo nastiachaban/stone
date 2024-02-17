@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stonecollection.RegistrationController">
+   <children>
+      <GridPane prefHeight="400.0" prefWidth="600.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="56.999996185302734" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.00000381469727" minWidth="10.0" prefWidth="164.20001525878902" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="288.3999847412109" minWidth="10.0" prefWidth="269.3999847412109" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="76.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+
+          <Label text="username: " GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <font>
+               <Font size="15.0" />
+            </font></Label>
+          <Label text="password: " GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <font>
+               <Font size="15.0" />
+            </font></Label>
+          <Label text="confirm your password: " GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <font>
+               <Font size="15.0" />
+            </font></Label>
+
+          <TextField fx:id="usernameField" prefHeight="34.0" prefWidth="278.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+          <PasswordField fx:id="passwordField" prefHeight="32.0" prefWidth="278.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+          <PasswordField fx:id="confirmationField" prefHeight="34.0" prefWidth="278.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         <Button alignment="CENTER" mnemonicParsing="false" onAction="#registerClick" prefHeight="33.0" prefWidth="104.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <font>
+               <Font size="14.0" />
+            </font>
+            <GridPane.margin>
+               <Insets right="10.0" />
+            </GridPane.margin></Button>
+         <Button mnemonicParsing="false" onAction="#cancelClick" prefHeight="33.0" prefWidth="104.0" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <font>
+               <Font size="14.0" />
+            </font></Button>
+      </GridPane>
+
+
+   </children>
+</AnchorPane>
