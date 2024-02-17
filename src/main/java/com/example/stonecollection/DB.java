@@ -1,6 +1,8 @@
 package com.example.stonecollection;
 import com.example.stonecollection.models.*;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -315,13 +317,38 @@ return null;
 }
 
 public void addUser(User user){
+    String passwordToHash = user.getPassword();
+    String generatedPassword = null;
+
+    try
+    {
+        // Create MessageDigest instance for MD5
+        MessageDigest md = MessageDigest.getInstance("MD5");
+
+        // Add password bytes to digest
+        md.update(passwordToHash.getBytes());
+
+        // Get the hash's bytes
+        byte[] bytes = md.digest();
+
+        // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < bytes.length; i++) {
+            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+        }
+
+        // Get complete hashed password in hex format
+        generatedPassword = sb.toString();
+    } catch (NoSuchAlgorithmException e) {
+        e.printStackTrace();
+    }
         try{
 
             Statement statement=connection.createStatement();
             String q="INSERT INTO `stones`.`user` (`username`, `password`) VALUES (?, ?)";
             PreparedStatement st=connection.prepareStatement(q);
             st.setString(1,user.getUsername());
-            st.setString(2,user.getPassword());
+            st.setString(2,generatedPassword);
             st.executeUpdate();
         }
 
@@ -329,7 +356,9 @@ public void addUser(User user){
             System.out.println(e.getMessage());
         }
 
+
 }
+
 
 
 
