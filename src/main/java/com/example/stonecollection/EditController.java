@@ -3,7 +3,6 @@ package com.example.stonecollection;
 import com.example.stonecollection.models.Precious;
 import com.example.stonecollection.models.SemiPrecious;
 import com.example.stonecollection.models.Stone;
-import com.example.stonecollection.models.StoneCollection;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

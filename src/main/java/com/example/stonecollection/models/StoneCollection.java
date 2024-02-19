@@ -1,6 +1,5 @@
 package com.example.stonecollection.models;
 
-import java.sql.Array;
 import java.util.ArrayList;
 
 public class StoneCollection {
