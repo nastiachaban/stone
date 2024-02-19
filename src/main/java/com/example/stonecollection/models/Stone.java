@@ -37,9 +37,6 @@ public abstract class Stone {
         this.id = id;
     }
 
-    public void setStonecollection_id(int stonecollection_id) {
-        this.stonecollection_id = stonecollection_id;
-    }
 
     public Stone(String name, double price, Color color, int weight) {
         this.name = name;

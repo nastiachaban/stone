@@ -8,7 +8,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.stonecollection.DeleteStoneController"
             prefHeight="200.0" prefWidth="300.0">
-    <children>
+
         <GridPane prefHeight="191.0" prefWidth="293.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.4" minWidth="10.0" prefWidth="151.4" />
@@ -20,7 +20,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
-            <children>
                 <Label alignment="CENTER" prefHeight="34.0" prefWidth="294.0" text="Are you sure that you want to delete this stone?" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="26.0" prefWidth="90.0" text="Delete" GridPane.columnIndex="0" GridPane.rowIndex="2">
                     <GridPane.margin>
@@ -30,7 +29,7 @@
                     <GridPane.margin>
                         <Insets left="15.0" />
                     </GridPane.margin></Button>
-            </children>
+
         </GridPane>
-    </children>
+
 </AnchorPane>

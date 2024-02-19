@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
@@ -72,8 +71,6 @@ public class EditPreciousController extends Controller implements Initializable 
         colorBox.setItems(FXCollections.observableArrayList(Color.values()));
         rarityBox.setItems(FXCollections.observableArrayList(Rarity.values()));
         colorBox.getSelectionModel().select(DB.stone.getColor());
-//        Precious pr=(Precious)DB.stone;
-//        rarityBox.getSelectionModel().select(pr.getRarity());
         rarityBox.getSelectionModel().select(((Precious)DB.stone).getRarity());
     }
 }

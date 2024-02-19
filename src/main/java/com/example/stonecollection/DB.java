@@ -1,5 +1,12 @@
 package com.example.stonecollection;
-import com.example.stonecollection.models.*;
+import com.example.stonecollection.models.StoneCollection;
+//import com.example.stonecollection.models.*;
+import com.example.stonecollection.models.Stone;
+import com.example.stonecollection.models.Color;
+import com.example.stonecollection.models.Rarity;
+import com.example.stonecollection.models.Precious;
+import com.example.stonecollection.models.SemiPrecious;
+import com.example.stonecollection.models.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -7,7 +14,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DB {
-    private Connection connection;
+    private final Connection connection;
     private final String url = "jdbc:mysql://localhost/stones";
     private final String username = "root";
     private final String password = "nastia!2006";
@@ -24,7 +31,7 @@ public class DB {
     public void addCollection(StoneCollection collection) {
         try {
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate(String.format("INSERT stonecollection(name) VALUES (\'%s\')", collection.getName()));
+            statement.executeUpdate(String.format("INSERT stonecollection(name) VALUES (\'%s\')", collection.getName()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -33,7 +40,7 @@ public class DB {
     public void editCollection(StoneCollection collection) {
         try {
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate(String.format("UPDATE stonecollection SET name = \'%s\' where id=%d", collection.getName(),collection.getId()));
+            statement.executeUpdate(String.format("UPDATE stonecollection SET name = \'%s\' where id=%d", collection.getName(),collection.getId()));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -42,30 +49,12 @@ public class DB {
     public void deleteCollection(StoneCollection collection) {
         try {
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate("DELETE FROM stonecollection WHERE Id = " + collection.getId());
+            statement.executeUpdate("DELETE FROM stonecollection WHERE Id = " + collection.getId());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public StoneCollection getCollection(int id){
-
-        try {
-            Statement statement = connection.createStatement();
-
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM stonecollection where id="+id);
-            while (resultSet.next()) {
-
-                int id1 = resultSet.getInt(1);
-                String name = resultSet.getString(2);
-                return new StoneCollection(id1,name);
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return null;
-
-    }
 
     public ArrayList<StoneCollection> getCollections() {
         ArrayList<StoneCollection> collections = new ArrayList<>();
@@ -275,8 +264,7 @@ public class DB {
 //        DELETE FROM `stones`.`stone` WHERE (`id` = '12');
 //        if(stone instanceof Precious){
         try {
-//            Statement statement = connection.createStatement();
-           // int rows = statement.executeUpdate("DELETE FROM `stones`.`precious` WHERE `stone_id` = " + stone.getId());
+
             PreparedStatement statement1=connection.prepareStatement("DELETE FROM `stones`.`stone` WHERE (`id` = ?)");
             System.out.println(stone.getId());
             statement1.setInt(1,stone.getId());
@@ -333,8 +321,8 @@ public void addUser(User user){
 
         // This bytes[] has bytes in decimal format. Convert it to hexadecimal format
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < bytes.length; i++) {
-            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+        for (byte aByte : bytes) {
+            sb.append(Integer.toString((aByte & 0xff) + 0x100, 16).substring(1));
         }
 
         // Get complete hashed password in hex format

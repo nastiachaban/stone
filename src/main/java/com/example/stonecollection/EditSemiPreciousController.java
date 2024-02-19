@@ -1,15 +1,12 @@
 package com.example.stonecollection;
 
 import com.example.stonecollection.models.Color;
-import com.example.stonecollection.models.Precious;
-import com.example.stonecollection.models.Rarity;
 import com.example.stonecollection.models.SemiPrecious;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 
 import java.net.URL;

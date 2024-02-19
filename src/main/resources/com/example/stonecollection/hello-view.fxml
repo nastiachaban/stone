@@ -13,7 +13,7 @@
 
     <Label prefHeight="49.0" prefWidth="202.0" text="Welcome to the stone collection app" />
     <ImageView fitWidth="270" fitHeight="165">
-    <Image url="@img/stones1.png"></Image>
+    <Image url="@img/stones1.png"/>
     </ImageView>
     <Button onAction="#startClick" prefHeight="26.0" prefWidth="71.0" text="Start" />
 
