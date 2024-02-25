@@ -28,7 +28,7 @@
             </TableView>
              <Button mnemonicParsing="false" onAction="#onAddClick" prefHeight="39.0" prefWidth="186.0" text="Add" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
              <Button mnemonicParsing="false" onAction="#onEditClick" prefHeight="39.0" prefWidth="186.0" text="Edit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-
+          <Button mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="39.0" prefWidth="186.0" text="Edit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
 
       </GridPane>
        <ImageView fitHeight="88.0" fitWidth="600.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">

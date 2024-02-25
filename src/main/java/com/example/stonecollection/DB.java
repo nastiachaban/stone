@@ -1,6 +1,5 @@
 package com.example.stonecollection;
 import com.example.stonecollection.models.StoneCollection;
-//import com.example.stonecollection.models.*;
 import com.example.stonecollection.models.Stone;
 import com.example.stonecollection.models.Color;
 import com.example.stonecollection.models.Rarity;
