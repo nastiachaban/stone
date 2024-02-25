@@ -9,11 +9,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EditController extends Controller implements Initializable {
@@ -38,6 +40,9 @@ public class EditController extends Controller implements Initializable {
 
     @FXML
     TableColumn<Stone, String> rarityqualityCol;
+
+    @FXML
+    ComboBox<String> sortBox;
 
     @FXML
 
@@ -93,6 +98,52 @@ public class EditController extends Controller implements Initializable {
         DB db=new DB();
         db.editCollection(DB.collection);
         redirect(event, "collection-view.fxml", 600, 500);
+    }
+
+    public static void sortByName(ArrayList<Stone> list){
+        list.sort((st1,st2)->st1.getName().compareTo(st2.getName()));
+    }
+
+    public static void sortByPrice(ArrayList<Stone> list){
+        list.sort((st1,st2)->Double.compare(st1.getPrice(),st2.getPrice()));
+    }
+    public static void sortByWeight(ArrayList<Stone> list){
+        list.sort((st1,st2)->Integer.compare(st1.getWeight(),st2.getWeight()));
+    }
+
+    public static void sortByColor(ArrayList<Stone> list){
+        list.sort((st1,st2)->st1.getColor().toString().compareTo(st2.getColor().toString()));
+    }
+
+    @FXML
+    public void onSortClick(){
+        if(sortBox.getSelectionModel().getSelectedItem()==null){
+            showMessage("choose criteria of sort");
+            return;
+        }
+        String selectedItem=sortBox.getSelectionModel().getSelectedItem();
+        try {
+            DB db = new DB();
+            ArrayList<Stone> list=db.getStones(DB.collection.getId());
+            if(selectedItem.equals("name")){
+                sortByName(list);
+            }
+            else if(selectedItem.equals("price")){
+                sortByPrice(list);
+            }
+            else if(selectedItem.equals("weight")){
+                sortByWeight(list);
+            }
+            else if(selectedItem.equals("color")){
+                sortByColor(list);
+            }
+
+            ObservableList<Stone> collection = FXCollections.observableArrayList(list);
+            table.setItems(collection);
+            collectionName.setText(DB.collection.getName());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
 

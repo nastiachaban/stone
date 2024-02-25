@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -51,5 +53,16 @@
 
 
       <Button layoutX="549.0" layoutY="200.0" mnemonicParsing="false" onAction="#onDeleteClick" prefHeight="30.0" prefWidth="82.0" text="Delete" />
+    <ComboBox fx:id="sortBox" layoutX="549.0" layoutY="247.0" prefHeight="30.0" prefWidth="82.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="name" />
+                <String fx:value="price" />
+                <String fx:value="weight" />
+                <String fx:value="color" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+   <Button layoutX="549.0" layoutY="285.0" mnemonicParsing="false" onAction="#onSortClick" prefHeight="30.0" prefWidth="82.0" text="Sort" />
 
 </AnchorPane>
